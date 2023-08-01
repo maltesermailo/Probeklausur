@@ -9,6 +9,22 @@
 #include <string>
 #include <mutex>
 
+struct AthleteParseResult {
+    std::string name;
+    int startId;
+    double time;
+    int license;
+
+    int type;
+};
+
+struct TrainerParseResult {
+    std::string name;
+    int license;
+
+    std::vector<int> athleteIds;
+};
+
 class MySports
 {
 public:
@@ -24,7 +40,7 @@ public:
     Trainer* getTrainer(const int License);
 
     std::vector<Athlete*>& getAthletes();
-    std::vector<Trainer*> getTrainers();
+    std::vector<Trainer*>& getTrainers();
 
     void save(std::string fileName);
     void load(std::string fileName);

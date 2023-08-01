@@ -18,7 +18,7 @@ public:
 private:
     double time;
 
-    Trainer* trainer;
+    Trainer* trainer = nullptr;
 };
 
 #endif // RUNNER_H

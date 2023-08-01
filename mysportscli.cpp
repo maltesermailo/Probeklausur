@@ -323,8 +323,7 @@ void trainerAusgeben() {
 void trainersAusgeben() {
     std::cout << "**** Liste aller Trainer ****" << endl;
 
-    std::vector<Trainer *>::iterator it;
-    for(it = mySports.getTrainers().begin(); it != mySports.getTrainers().end(); it++) {
+    for(std::vector<Trainer *>::iterator it = mySports.getTrainers().begin(); it != mySports.getTrainers().end(); it++) {
         Trainer* trainer = (*it);
 
         cout << "-- Trainer " << trainer->getLicense() << " --" << endl;
@@ -380,15 +379,17 @@ void trainerMenu() {
 
 void openCLI()
 {
+    mySports.load("mySports.txt");
 
     int auswahl;
 
-    cout << "--- mySports ---\n" << endl;
-    cout << "(1) Athlet " << endl <<
-        "(2) Trainer " << endl <<
-        "(0) Beenden" << endl;
-
     do {
+        cout << "--- mySports ---\n" << endl;
+        cout << "(1) Athlet " << endl <<
+            "(2) Trainer " << endl <<
+            "(0) Beenden" << endl;
+
+
         cout << ">> ";
         cin >> auswahl;
 

@@ -31,10 +31,14 @@ bool Trainer::hasAthlete(Athlete *athlete)
 {
     std::vector<Athlete*>::iterator it;
 
+    it = this->athletes.begin();
+
     while(it != this->athletes.end()) {
-        if((*it) == athlete) {
+        if((*it) != nullptr && (*it) == athlete) {
             return true;
         }
+
+        it++;
     }
 
     return false;
